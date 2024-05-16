@@ -704,7 +704,7 @@ const FormRow = ({ type, name, labelText, defaultValue = "" }) => {
         id={name}
         name={name}
         className="form-input"
-        defaultValue={defaultValue}
+        defaultValue={defaultValue || ""}
         required
       />
     </div>
@@ -3257,7 +3257,7 @@ export const validateIdParam = withValidationErrors([
     const isAdmin = req.user.role === "admin";
     const isOwner = req.user.userId === job.createdBy.toString();
     if (!isAdmin && !isOwner)
-      throw UnauthorizedError("not authorized to access this route");
+      throw new UnauthorizedError("not authorized to access this route");
   }),
 ]);
 ```
