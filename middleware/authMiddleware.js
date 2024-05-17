@@ -21,6 +21,6 @@ export const authorizePermissions = (...roles) => {
     if (!roles.includes(req.user.role)) {
       throw new UnauthorizedError("Unauthorized to access this route");
     }
-    next();
+    next()
   };
 };
